@@ -1,4 +1,5 @@
 from pathlib import Path
+from io import BytesIO
 import os
 import urllib.request
 import zipfile
@@ -26,8 +27,10 @@ def main():
     archive = raw / "bank.zip"
     if not archive.exists(): urllib.request.urlretrieve(URL, archive)
     with zipfile.ZipFile(archive) as zf:
-        name = next(n for n in zf.namelist() if n.endswith("bank-full.csv"))
-        with zf.open(name) as f: data = pd.read_csv(f, sep=";")
+        nested_name = next(n for n in zf.namelist() if n.endswith("bank.zip"))
+        with zipfile.ZipFile(BytesIO(zf.read(nested_name))) as bank_zip:
+            csv_name = next(n for n in bank_zip.namelist() if n.endswith("bank-full.csv"))
+            with bank_zip.open(csv_name) as f: data = pd.read_csv(f, sep=";")
     y = data.pop("y").map({"no": 0, "yes": 1})
     data = data.drop(columns=["duration"])
     X_train, X_rem, y_train, y_rem = train_test_split(data, y, test_size=.4, stratify=y, random_state=42)
