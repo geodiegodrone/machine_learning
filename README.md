@@ -1,58 +1,17 @@
-# Machine Learning Coursework Portfolio
+# Data Science Portfolio
 
-**Curated machine-learning notebooks with reproducible project structure**
+This repository now serves as an index of five standalone projects. Each project has its own repository and is the canonical source for its code, documentation, and MLflow workflow.
 
-[![Python](https://img.shields.io/badge/python-3.11%2B-blue)](requirements.txt)
-[![CI](https://img.shields.io/badge/CI-repository%20checks-green)](.github/workflows/ci.yml)
-[![Portfolio](https://img.shields.io/badge/status-curated%20academic%20portfolio-yellow)](docs/PORTFOLIO_GUIDE.md)
+## Projects
 
-This repository collects machine-learning coursework and experiments. It has been upgraded from a notebook archive into a portfolio-ready academic repository with a project index, reproducibility checklist, dependency file, lightweight validation tests, and CI.
+- [Wholesale Customer Segmentation](https://github.com/geodiegodrone/wholesale-customer-segmentation): K-Means segmentation, model selection, and customer profiles.
+- [Bike Demand Forecasting](https://github.com/geodiegodrone/bike-demand-forecasting): time-aware demand regression with leakage-aware features.
+- [Bank Marketing Response](https://github.com/geodiegodrone/bank-marketing-response): imbalanced classification with validation-based threshold selection.
+- [Home Energy Forecasting](https://github.com/geodiegodrone/home-energy-forecasting): chronological forecasting and baseline comparison.
+- [SMS Spam Classifier](https://github.com/geodiegodrone/sms-spam-classifier): TF-IDF NLP classification with a transparent baseline.
 
-The `projects/` directory adds five end-to-end case studies covering customer segmentation, demand and energy forecasting, marketing response, and text classification. Each project documents its business framing, data provenance, evaluation design, limitations, and MLflow experiment tracking.
-
-## Contents
-
-| Path | Topic | Notes |
-|---|---|---|
-| `actividad1/` | Dengue prediction practice | Includes train/test feature CSVs and labels |
-| `07MBID_Práctica_2_diego_pulido.ipynb` | ML practice 2 | Notebook experiment |
-| `actividad1/*.ipynb` | ML practice 1 variants | Original notebook work |
-| `projects/wholesale-customer-segmentation/` | Customer analytics | Unsupervised segmentation with tracked model selection |
-| `projects/bike-demand-forecasting/` | Mobility | Leakage-aware hourly demand regression |
-| `projects/bank-marketing-response/` | Marketing | Imbalanced response classification and threshold selection |
-| `projects/home-energy-forecasting/` | Energy | Time-aware household energy forecasting |
-| `projects/sms-spam-classifier/` | NLP | TF-IDF spam classification |
-
-## Why This Repo Matters
-
-Coursework repositories often become hard to review because they are only notebook dumps. This repository now explains what is inside, how to validate the data, and how it can evolve into a professional ML learning portfolio.
-
-## Quickstart
-
-```bash
-python -m pip install -r requirements.txt
-pytest -q
-python scripts/catalog_repository.py
-```
-
-## Reproducibility Standards
-
-- Keep raw coursework files unchanged.
-- Add derived scripts under `scripts/`.
-- Add documentation under `docs/`.
-- Keep data files small and explicit.
-- Avoid committing notebook checkpoints.
-- Prefer deterministic random seeds in new notebooks.
-- Track each experiment, parameters, metrics, and deployable model with MLflow.
-
-## Next Upgrade Targets
-
-- Convert notebooks into reproducible pipelines.
-- Add model cards for each exercise.
-- Export metrics tables to `reports/`.
-- Add notebook execution checks.
-- Add a unified `src/` package for reusable preprocessing.
+Each standalone repository includes setup instructions, pinned dependencies, an MLflow-enabled training script, a model card, and a code license. The legacy `projects/` copies in this repository are retained as historical snapshots; use the linked repositories for current work.
 
 ## Author
 
-Diego F. Pulido Sastoque
+[Diego F. Pulido Sastoque](https://github.com/geodiegodrone) | [LinkedIn](https://www.linkedin.com/in/diego-f-pulido-sastoque-91081b14a/)
